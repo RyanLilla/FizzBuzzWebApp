@@ -1,0 +1,35 @@
+﻿@page
+@model FizzBuzzWebApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz Web App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">FizzBuzz Web App</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="Input">Please enter a number:</label>
+                <input type="text" class="form-control" id="Input" name="Input" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        @if (Model.Messages != null && Model.Messages.Any()) {
+            foreach (var message in Model.Messages)
+            {
+                <div>@message</div>
+            }
+        }
+    </div>
+</body>
+</html>
+
